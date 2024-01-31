@@ -1,0 +1,14 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title >
+      Register App
+    </ion-title>
+    <ion-buttons slot="end">
+        <ion-button [routerLink]="['/login']">
+          <ion-icon slot="icon-only" name="person-outline"></ion-icon>
+        </ion-button>  
+        <ion-label>{{appComponent.nombre}}</ion-label>
+        <ion-menu-button ion-button (click)="openMenu()"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

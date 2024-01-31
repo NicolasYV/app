@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <app-cabecera></app-cabecera> 
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-item>
+    <ion-input type="text" placeholder="Contenido QR" [(ngModel)]="contenidoQr">
+    </ion-input>
+  </ion-item>
+  
+  <ion-card class="ion-text-center">
+    <ion-card-content>
+      <qrcode [qrdata]="contenidoQr" [width]="256" [errorCorrectionLevel]="'M'" [allowEmptyString]="true"></qrcode>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

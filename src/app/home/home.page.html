@@ -1,20 +1,35 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+  <app-cabecera></app-cabecera>  
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" [style.visibility]="visible">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        Bienvenido, {{appComponent.nombre}}.
+      </ion-card-title>
+    </ion-card-header>
+  </ion-card>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <ion-button (click)="escanear()">Escanear</ion-button>
+  
+  <ion-card *ngIf="resultado">
+    <ion-label>{{resultado}}</ion-label>
+  </ion-card>
+
+  <a *ngIf="resultado" href="mailto:{{correo}}?subject={{sujeto}}?body={{cuerpo}}">
+    Enviar asistencia
+  </a>
+
+  <ion-button [routerLink]="['/generar']">Generar QR</ion-button>
+
+  <ion-datetime locale="es-ES" presentation="date" [isDateEnabled]="isWeekday" [firstDayOfWeek]="1" [preferWheel]="false"></ion-datetime>
+  <div scrolly="true" style="max-height: 40%;">
+    <ion-list>
+      <ion-item *ngFor="let fer of feriados">
+        <ion-label>{{fer.title}} {{fer.date}}</ion-label>
+      </ion-item>
+    </ion-list>
   </div>
+
 </ion-content>

@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <app-cabecera></app-cabecera>
+</ion-header>
+
+<ion-content>
+  <ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="formReg">
+        <ion-item>
+          <ion-label position="floating">Nombre de usuario</ion-label>
+          <ion-input type="text" required formControlName="name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" required formControlName="mail"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input type="password" required formControlName="password"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Confirmar contraseña</ion-label>
+          <ion-input type="password" required formControlName="confirmPassword"></ion-input>
+        </ion-item>
+      </form>
+      <ion-button id="present-alert" color="primary" (click)="create()">Registrarse</ion-button>
+      <ion-alert
+      trigger="present-alert"
+      header="Solo falta un paso!"
+      message="Confirma tu registro a través del link que hemos enviado a tu email "
+      [buttons]="alertButtons"
+    ></ion-alert>
+    </ion-card-content>
+  </ion-card-header>
+</ion-content>

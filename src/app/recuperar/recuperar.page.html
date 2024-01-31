@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <app-cabecera></app-cabecera>
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-title>Recuperar contraseña</ion-title>
+      <ion-text>Ingresa tu correo. Te enviaremos las instrucciones para que puedas crear una nueva contraseña.</ion-text>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" [formControl]="email"></ion-input>
+      </ion-item>
+    </ion-card-content>
+    <ion-button id="present-alert" (click)="enviar()">Enviar</ion-button>
+    <ion-alert
+      trigger="present-alert"
+      header="Revisa tu email"
+      message="Hemos enviado un enlace para que puedas recupera tu contraseña"
+      [buttons]="alertButtons"
+    ></ion-alert>
+  </ion-card>  
+</ion-content>
